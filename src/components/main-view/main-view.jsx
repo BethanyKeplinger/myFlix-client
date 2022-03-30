@@ -9,7 +9,7 @@ export class MainView extends React.Component {
         super();
         this.state = {
             movies: [
-                { _id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: '...' },
+                { _id: 1, Title: 'Jurasic Park', Description: 'A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the parks cloned dinosaurs to run loose.', ImagePath: 'https://www.imdb.com/title/tt0107290/mediaviewer/rm3913805824/' },
                 { _id: 2, Title: 'The Shawshank Redemption', Description: 'desc2...', ImagePath: '...' },
                 { _id: 3, Title: 'Gladiator', Description: 'desc3...', ImagePath: '...' }
             ],
@@ -32,7 +32,12 @@ export class MainView extends React.Component {
 
         return (
             <div className='main-view'>
-                {movies.map((movie) => <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setselectedMovie(movie) }} />)}
+                {selectedMovie
+                    ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                    : movies.map(movie => (
+                        <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+                    ))
+                }
             </div>
         );
     }
