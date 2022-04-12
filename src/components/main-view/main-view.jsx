@@ -1,9 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
+import './main-view.scss';
 import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { NavbarView } from '../navbar-view/navbar-view';
+
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 
 export class MainView extends React.Component {
 
@@ -41,25 +46,50 @@ export class MainView extends React.Component {
         });
     }
 
+    onRegistration(register) {
+        this.setState({
+            register
+        });
+    }
+
     render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, selectedMovie, user, register } = this.state;
 
         /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
         if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
+        if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
 
         //Before the movies have been loaded
         if (movies.length === 0) return <div className='main-view' />;
 
         return (
-            <div className='main-view'>
-                {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
-                {selectedMovie
-                    ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    : movies.map(movie => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
-                    ))
-                }
-            </div>
+            <Container>
+                <Row>
+                    <NavbarView user={user} />
+                </Row>
+
+                <Row className='main-view justify-content-md-center'>
+                    {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
+                    {selectedMovie
+                        ? (
+                            <Col md={8}>
+                                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                            </Col>
+                        )
+                        : (
+                            movies.map(movie => (
+                                <Col md={3}>
+                                    <MovieCard key={movie._id}
+                                        movie={movie}
+                                        onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                                </Col>
+                            ))
+                        )
+                    }
+
+                </Row>
+            </Container>
         );
     }
 }
