@@ -4,6 +4,7 @@
 
 #form-button {
   background-color: #eda407;
+  margin-top: 10px;
 }
 #movie-card {
   margin-top: 70px;
@@ -14,12 +15,11 @@
 }
 * {
   box-sizing: border-box;
-  background-color: #265b5f;
 }
 #navbar {
   margin-bottom: 10px;
 }
 .my-flix {
-  color: steelblue;
+  background-color: #265b5f;
 }
 /*# sourceMappingURL=index.1d334ea1.css.map */
