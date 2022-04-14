@@ -18,6 +18,7 @@ export function NavbarView({ user }) {
                     <Nav.Link id="nav-link" href="#home">Account</Nav.Link>
                     <Nav.Link id="nav-link" href="#myfavoritemovies">Watchlist</Nav.Link>
                     <Nav.Link id="nav-link" href="#register">Register</Nav.Link>
+                    <Nav.Link id="nav-link" href="#logout">Log Out</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
