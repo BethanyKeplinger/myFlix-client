@@ -1,3 +1,7 @@
+#movie-card {
+  margin-top: 70px;
+  background-color: #FFFFFF;
+}
 
 * {
   box-sizing: border-box;
@@ -9,4 +13,4 @@
 .my-flix {
   color: steelblue;
 }
-/*# sourceMappingURL=index.011f33b6.css.map */
+/*# sourceMappingURL=index.3f764291.css.map */

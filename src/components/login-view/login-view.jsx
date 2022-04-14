@@ -2,12 +2,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Navbar, Nav, Form, Button, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
-<<<<<<< Updated upstream
-=======
-import "./login-view.scss";
-
-import axios from 'axios';
->>>>>>> Stashed changes
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
@@ -57,12 +51,12 @@ export function LoginView(props) {
                                         <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
                                     </Form.Group>
 
-                                    <Form.Group controlId="formUsername">
-                                        <Form.label>Password:</Form.label>
-                                        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+                                    <Form.Group controlId="formPassword">
+                                        <Form.Label className="form-element">Password:</Form.Label>
+                                        <Form.Control type="password" placeholder="Enter Password" onChange={e => setPassword(e.target.value)} />
                                     </Form.Group>
 
-                                    <Button variant="primary" type="submit" onClick={handleSubmit}>Login
+                                    <Button id="form-button" variant="primary" type="submit" onClick={handleSubmit}>Login
                                     </Button>
 
                                 </Form>

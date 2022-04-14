@@ -12,7 +12,7 @@ export function RegistrationView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password, email, Birthday);
+        console.log(username, password, email, birthday);
         props.onRegistration(username);
     };
 
@@ -78,7 +78,7 @@ export function RegistrationView(props) {
                                         />
                                     </Form.Group>
 
-                                    <Button className="registerButton" variant="secondary" type="submit" onClick={handleSubmit}>Register</Button>
+                                    <Button id="form-button" variant="secondary" type="submit" onClick={handleSubmit}>Register</Button>
                                 </Form>
                             </Card.Body>
                         </Card>
