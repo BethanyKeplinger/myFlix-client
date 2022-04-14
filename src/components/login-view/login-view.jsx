@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
 import { Navbar, Nav, Form, Button, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
-import "./login-view.scss"
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
@@ -9,10 +9,20 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username, password);
-        /*Send a request to the server for aunthentication */
-        /*the call props.onLoggedIn(username) */
-        props.onLoggedIn(username);
+        axios.post('https://my-flix-2022.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        })
+            /*console.log(username, password);*/
+            /*Send a request to the server for aunthentication */
+            /*the call props.onLoggedIn(username) */
+            .then(response => {
+                const data = response.data;
+                props.onLoggedIn(data);
+            })
+            .catch(e => {
+                console.log('no such user')
+            });
     };
 
     return (
