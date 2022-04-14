@@ -58,7 +58,7 @@ export class MainView extends React.Component {
         //if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
 
         /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        //if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
         //Before the movies have been loaded
         if (movies.length === 0) return <div className='main-view' />;
@@ -69,7 +69,7 @@ export class MainView extends React.Component {
                     <NavbarView user={user} />
                 </Row>
 
-                <Row className='main-view justify-content-md-center'>
+                <Row className='main-view'>
                     {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
                     {selectedMovie
                         ? (
@@ -79,7 +79,7 @@ export class MainView extends React.Component {
                         )
                         : (
                             movies.map(movie => (
-                                <Col md={3}>
+                                <Col md={6} lg={4}>
                                     <MovieCard key={movie._id}
                                         movie={movie}
                                         onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
