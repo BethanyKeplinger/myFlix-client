@@ -1,0 +1,25 @@
+.card {
+  box-sizing: border-box;
+}
+
+#form-button {
+  background-color: #eda407;
+}
+#movie-card {
+  margin-top: 70px;
+  background-color: #FFFFFF;
+}
+#form-button {
+  background-color: #eda407;
+}
+* {
+  box-sizing: border-box;
+  background-color: #265b5f;
+}
+#navbar {
+  margin-bottom: 10px;
+}
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.1d334ea1.css.map */
