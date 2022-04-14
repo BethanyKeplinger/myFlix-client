@@ -1,6 +1,11 @@
 
-
-
+* {
+  box-sizing: border-box;
+  background-color: #265b5f;
+}
+#navbar {
+  margin-bottom: 10px;
+}
 .my-flix {
   color: steelblue;
 }
