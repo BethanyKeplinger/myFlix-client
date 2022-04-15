@@ -2,33 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Navbar, Nav, Form, Button, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
-<<<<<<< Updated upstream
-=======
+
 import "./login-view.scss";
 
 import axios from 'axios';
->>>>>>> Stashed changes
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post('https://my-flix-2022.herokuapp.com/login', {
-            Username: username,
-            Password: password
-        })
-            /*console.log(username, password);*/
-            /*Send a request to the server for aunthentication */
-            /*the call props.onLoggedIn(username) */
-            .then(response => {
-                const data = response.data;
-                props.onLoggedIn(data);
-            })
-            .catch(e => {
-                console.log('no such user')
-            });
+       e.preventDefault();
+       console.log(username, password);
+        props.onLoggedIn(username);
     };
 
     return (
