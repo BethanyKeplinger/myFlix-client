@@ -9,20 +9,10 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://my-flix-2022.herokuapp.com/login', {
-            Username: username,
-            Password: password
-        })
-            /*console.log(username, password);*/
-            /*Send a request to the server for aunthentication */
-            /*the call props.onLoggedIn(username) */
-            .then(response => {
-                const data = response.data;
-                props.onLoggedIn(data);
-            })
-            .catch(e => {
-                console.log('no such user')
-            });
+       console.log(username,password);
+        /*Send a request to the server for aunthentication */
+        /*the call props.onLoggedIn(username) */
+        props.onLoggedIn(username);
     };
 
     return (
