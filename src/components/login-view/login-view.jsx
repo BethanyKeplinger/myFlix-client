@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Navbar, Nav, Form, Button, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
-<<<<<<< Updated upstream
-=======
-import "./login-view.scss";
-
-import axios from 'axios';
->>>>>>> Stashed changes
+import './login-view.scss'
 
 import axios from 'axios';
 
@@ -40,25 +35,8 @@ export function LoginView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-<<<<<<< Updated upstream
-        axios.post('https://my-flix-2022.herokuapp.com/login', {
-            Username: username,
-            Password: password
-        })
-            /*console.log(username, password);*/
-            /*Send a request to the server for aunthentication */
-            /*the call props.onLoggedIn(username) */
-            .then(response => {
-                const data = response.data;
-                props.onLoggedIn(data);
-            })
-            .catch(e => {
-                console.log('no such user')
-            });
-=======
         const isReq = validate();
         if (isReq) {
-            /*Send a request to the server for authentication*/
             axios.post('https://my-flix-2022.herokuapp.com/login', {
                 Username: username,
                 Password: password
@@ -71,7 +49,6 @@ export function LoginView(props) {
                     console.log('no such user')
                 });
         }
->>>>>>> Stashed changes
     };
 
     return (
@@ -102,17 +79,9 @@ export function LoginView(props) {
                                         {usernameErr && <p> {usernameErr}</p>}
                                     </Form.Group>
 
-<<<<<<< Updated upstream
                                     <Form.Group controlId="formUsername">
                                         <Form.label>Password:</Form.label>
                                         <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-=======
-                                    <Form.Group controlId="formPassword">
-                                        <Form.Label className="form-element">Password:</Form.Label>
-                                        <Form.Control type="password" placeholder="Enter Password" onChange={e => setPassword(e.target.value)} />
-                                        {/*code added here to display validation error*/}
-                                        {passwordErr && <p>{passwordErr}</p>}
->>>>>>> Stashed changes
                                     </Form.Group>
 
                                     <Button variant="primary" type="submit" onClick={handleSubmit}>Login
