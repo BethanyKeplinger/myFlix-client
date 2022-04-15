@@ -22,29 +22,8 @@ export class MainView extends React.Component {
         };
     }
 
-    getMovies(token) {
-        axios.get('https://my-flix-2022.herokuapp.com/movies', {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then(response => {
-                //Assign the result to the state
-                this.setState({
-                    movies: response.data
-                });
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
-
     componentDidMount() {
-
-        const token = localStorage.getItem("token")
-
-        axios.get('https://my-flix-2022.herokuapp.com/movies', {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-
+        axios.get('https://my-flix-2022.herokuapp.com/movies')
             .then(response => {
                 this.setState({
                     movies: response.data
@@ -62,15 +41,10 @@ export class MainView extends React.Component {
         });
     }
     /* when a user successfully logs in, this function updates the `user` property in state to that particular user */
-    onLoggedIn(authData) {
-        console.log(authData);
+    onLoggedIn(user) {
         this.setState({
-            user: authData.user.Username
+            user
         });
-
-        localStorage.setItem('token', authData.token);
-        localStorage.setItem('user', authData.user.Username);
-        this.getMovies(authData.token);
     }
 
     onRegistration(register) {
@@ -82,7 +56,7 @@ export class MainView extends React.Component {
     render() {
         const { movies, selectedMovie, user, register } = this.state;
 
-        //if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
+        if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
 
         /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
         if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
