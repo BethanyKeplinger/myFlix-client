@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import './main-view.scss';
 import { LoginView } from '../login-view/login-view';
@@ -99,8 +99,6 @@ export class MainView extends React.Component {
 
         return (
             <Container>
-
-
                 <Router>
 
                     <Button id="logout-button" onClick={() => { this.onLoggedOut() }}>Logout</Button>
@@ -111,15 +109,55 @@ export class MainView extends React.Component {
 
                     <Row className='main-view'>
                         <Route exact path="/" render={() => {
+                            if (!user) return <Col>
+                                <LoginView movies={movies} onLoggedIn={user => this.onLoggedIn(user)} />
+                            </Col>
+                            //Before the movies have been loaded
+                            if (movies.length === 0) return <div className="main-view" />;
+
                             return movies.map(m => (
                                 <Col md={3} key={m._id}>
                                     <MovieCard movie={m} />
                                 </Col>
                             ))
                         }} />
-                        <Route path="/movies/:movieId" render={({ match }) => {
+
+                        <Route path="/register" render={() => {
+                            if (user) return <Redirect to="/" />
+                            return <Col lg={8} md={8}>
+                                <RegistrationView />
+                            </Col>
+                        }} />
+
+                        <Route exact path="/movies/:movieId" render={({ match, history }) => {
                             return <Col md={8}>
-                                <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+                                <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+                            </Col>
+                        }} />
+
+                        <Route exact path="/directors/:name" render={({ match, history }) => {
+                            return <Col md={8}>
+                                <DirectorView movie={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+                            </Col>
+                        }} />
+
+                        <Route exact path="/genres/:name" render={({ match }) => {
+                            return <Col md={8}>
+                                <GenreView movie={movies.find(m => m.Genre.Name === match.params.name).Genre} />
+                            </Col>
+                        }} />
+
+                        <Route path={`/users/${user}`} render={({ match, history }) => {
+                            if (!user) return <Redirect to="/" />
+                            return <Col>
+                                <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
+                            </Col>
+                        }} />
+
+                        <Route path={`/user-update/${user}`} render={({ match, history }) => {
+                            if (!user) return <Redirect to="/" />
+                            return <Col>
+                                <UserUpdate user={user} onBackClick={() => history.goBack()} />
                             </Col>
                         }} />
                     </Row>
