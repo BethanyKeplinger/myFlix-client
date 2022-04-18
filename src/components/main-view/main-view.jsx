@@ -33,12 +33,14 @@ export class MainView extends React.Component {
                 console.log(error);
             });
     }
+
     /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
     setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
         });
     }
+
     /* when a user successfully logs in, this function updates the `user` property in state to that particular user */
     onLoggedIn(user) {
         this.setState({
@@ -58,7 +60,7 @@ export class MainView extends React.Component {
         //if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
 
         /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-        //if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
         //Before the movies have been loaded
         if (movies.length === 0) return <div className='main-view' />;
@@ -74,7 +76,10 @@ export class MainView extends React.Component {
                     {selectedMovie
                         ? (
                             <Col md={8}>
-                                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                                <MovieView movie={selectedMovie}
+                                    onBackClick={newSelectedMovie => {
+                                        this.setSelectedMovie(newSelectedMovie);
+                                    }} />
                             </Col>
                         )
                         : (
@@ -82,7 +87,9 @@ export class MainView extends React.Component {
                                 <Col md={6} lg={4}>
                                     <MovieCard key={movie._id}
                                         movie={movie}
-                                        onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                                        onMovieClick={newSelectedMovie => {
+                                            this.setSelectedMovie(newSelectedMovie);
+                                        }} />
                                 </Col>
                             ))
                         )
