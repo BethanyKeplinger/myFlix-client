@@ -23,6 +23,7 @@ export function LoginView(props) {
                     <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="login">Login</Nav.Link>
+                        <Nav.Link href="Register">Register</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
