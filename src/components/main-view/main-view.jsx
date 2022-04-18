@@ -19,7 +19,7 @@ export class MainView extends React.Component {
         //Initial state is set to null  
         this.state = {
             movies: [],
-            selectedMovie: null,
+            //selectedMovie: null,
             user: null
         };
     }
@@ -68,13 +68,13 @@ export class MainView extends React.Component {
         this.getMovies(authData.token);
     }
 
-    // onLoggedOut() {
-    //     localStorage.removeItem('token');
-    //     localStorage.removeItem('user');
-    //     this.setState({
-    //         user: null
-    //     });
-    // }
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
 
     // onRegistration(register) {
     //     this.setState({
@@ -99,11 +99,16 @@ export class MainView extends React.Component {
 
         return (
             <Container>
-                <Row>
-                    <NavbarView user={user} />
-                </Row>
+
 
                 <Router>
+
+                    <Button id="logout-button" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+
+                    <Row>
+                        <NavbarView user={user} />
+                    </Row>
+
                     <Row className='main-view'>
                         <Route exact path="/" render={() => {
                             return movies.map(m => (
