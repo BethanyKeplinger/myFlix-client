@@ -22,7 +22,7 @@ export class MainView extends React.Component {
         };
     }
 
-   componentDidMount() {
+    componentDidMount() {
         axios.get('https://my-flix-2022.herokuapp.com/movies')
             .then(response => {
                 this.setState({
