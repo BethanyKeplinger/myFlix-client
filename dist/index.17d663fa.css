@@ -1,6 +1,15 @@
 
+.card {
+  box-sizing: border-box;
+}
 
-
+#form-button {
+  background-color: #eda407;
+  margin-top: 10px;
+}
+#form-button {
+  background-color: #eda407;
+}
 
 .my-flix {
   background-color: #265b5f;
