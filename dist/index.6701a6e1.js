@@ -37959,7 +37959,7 @@ function RegistrationView(props) {
                                                 ]
                                             }),
                                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                                className: "form-button",
+                                                id: "form-button",
                                                 variant: "secondary",
                                                 type: "submit",
                                                 onClick: handleSubmit,
