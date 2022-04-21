@@ -19,25 +19,28 @@ export function NavbarView({ user }) {
         } else {
             return false;
         }
-    }
+    };
 
     return (
-        <Navbar id="navbar" fixed="top" expand="lg">
+        <Navbar id="navbar" fixed="top" expand="lg" bg="dark" variant="dark">
             <Container id="navbar-container">
-                <Navbar.Brand id="navbar-brand" href="/">MyFlix</Navbar.Brand>
+                <Navbar.Brand id="navbar-logo" href="/">MyFlix</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav id="id" className="ml-auto">
+                    <Nav className="ml-auto">
+                        {isAuth() && (
+                            <Nav.Link id="nav-link" href="/movies">Home</Nav.Link>
+                        )}
                         {isAuth() && (
                             <Nav.Link id="nav-link" href={`/users/${user}`}>{user}</Nav.Link>
                         )}
                         {isAuth() && (
-                            <Button vaariant="link" onClick={() => { this.onLoggedOut() }}>Logout</Button>
+                            <Button variant="link" onClick={() => { onLoggedOut() }}>Logout</Button>
                         )}
                         {!isAuth() && (
                             <Nav.Link id="nav-link" href="/">Sign-in</Nav.Link>
                         )}
-                        {isAuth() && (
+                        {!isAuth() && (
                             <Nav.Link id="nav-link" href="/register">Sign-up</Nav.Link>
                         )}
                     </Nav>
