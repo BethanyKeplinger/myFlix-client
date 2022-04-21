@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navbar, Nav, Form, Button, Card, CardGroup, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import './registration-view.scss';
 import axios from 'axios';
 
 export function RegistrationView(props) {
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -61,9 +63,8 @@ export function RegistrationView(props) {
                     alert('Registration successful, please login');
                     window.open('/', '_self');
                 })
-                .catch(response => {
-                    console.log(response);
-                    alert('unable to register');
+                .catch(e => {
+                    console.log('Error registering the user');
                 });
         }
     };
@@ -72,14 +73,14 @@ export function RegistrationView(props) {
 
         <Container fluid className="registerContainer">
 
-            <Navbar bg="navColor" variant="dark" expand="lg">
+            {/* <Navbar bg="dark" variant="dark" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="logout">Register</Nav.Link>
                     </Nav>
                 </Container>
-            </Navbar>
+            </Navbar> */}
 
             <Row>
                 <Col>
@@ -138,6 +139,8 @@ export function RegistrationView(props) {
                                     </Form.Group>
 
                                     <Button id="form-button" variant="secondary" type="submit" onClick={handleSubmit}>Register</Button>
+                                    <p></p>
+                                    <p> Already registered? <Link to={'/'}> Sign in</Link> here</p>
                                 </Form>
                             </Card.Body>
                         </Card>
