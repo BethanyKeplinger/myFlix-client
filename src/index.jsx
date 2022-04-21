@@ -10,7 +10,7 @@ import './index.scss';
 class MyFlixApplication extends React.Component {
     render() {
         return (
-            <div className='myflix'>
+            <div className='main-view'>
                 <Container>
                     <MainView />
                 </Container>
