@@ -1,6 +1,9 @@
 
-.card {
+#login-card {
   box-sizing: border-box;
+  padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #form-button {
@@ -11,7 +14,8 @@
   background-color: #eda407;
 }
 
-.my-flix {
+
+.main-view {
   background-color: #265b5f;
 }
 /*# sourceMappingURL=index.17d663fa.css.map */
