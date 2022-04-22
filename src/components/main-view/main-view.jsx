@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { BrowserRouter as Router, Route, Routes, Redirect } from 'react-router-dom';
 
-import './main-view.scss';
+//import './main-view.scss';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -12,6 +12,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
+import { ProfileView } from '../profile-view/profile-view';
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -79,8 +80,10 @@ export class MainView extends React.Component {
             <Router>
 
                 {/* <Button id="logout-button" onClick={() => { this.onLoggedOut() }}>Logout</Button> */}
+                <Row>
+                    <NavbarView user={user} />
+                </Row>
 
-                <NavbarView user={user} />
 
                 <Container>
 
@@ -138,12 +141,12 @@ export class MainView extends React.Component {
                                 </Col>
                             }} />
 
-                            {/* <Route exact path={`/users/${user}`} render={({ match, history }) => {
+                            <Route path={`/users/${user}`} render={({ match, history }) => {
                                 if (!user) return <Redirect to="/" />
                                 return <Col>
                                     <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
                                 </Col>
-                            }} /> */}
+                            }} />
 
                             {/* <Route exact path={`/user-update/${user}`} render={({ match, history }) => {
                                 if (!user) return <Redirect to="/" />
