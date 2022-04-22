@@ -63,8 +63,9 @@ export function RegistrationView(props) {
                     alert('Registration successful, please login');
                     window.open('/', '_self');
                 })
-                .catch(e => {
-                    console.log('Error registering the user');
+                .catch(response => {
+                    console.error('response');
+                    alert('Unable to register');
                 });
         }
     };
@@ -91,7 +92,7 @@ export function RegistrationView(props) {
                                 <Card.Subtitle className="mb-2 text-muted text-center">Please Register</Card.Subtitle>
 
                                 <Form>
-                                    <Form.Group>
+                                    <Form.Group controlId="formUsername" className="reg-form-inputs">
                                         <Form.Label>Username</Form.Label>
                                         <Form.Control
                                             type="text"
@@ -100,11 +101,11 @@ export function RegistrationView(props) {
                                             required
                                             placeholder="Enter a username"
                                         />
-                                        {usernameErr && <p>{usernameErr}</p>}
+                                        {values.usernameErr && <p>{values.usernameErr}</p>}
 
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group controlId="formPassword" className="reg-form-inputs">
                                         <Form.Label>Password</Form.Label>
                                         <Form.Control
                                             type="password"
@@ -114,10 +115,10 @@ export function RegistrationView(props) {
                                             placeholder="Enter a password with 6 or more characters"
                                             minLength="6"
                                         />
-                                        {passwordErr && <p>{passwordErr}</p>}
+                                        {values.passwordErr && <p>{values.passwordErr}</p>}
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group controlId="formEmail" className="reg-form-inputs">
                                         <Form.Label>Email</Form.Label>
                                         <Form.Control
                                             type="email"
@@ -126,10 +127,10 @@ export function RegistrationView(props) {
                                             required
                                             placeholder="Enter a valid email address"
                                         />
-                                        {emailErr && <p>{emailErr}</p>}
+                                        {values.emailErr && <p>{values.emailErr}</p>}
                                     </Form.Group>
 
-                                    <Form.Group>
+                                    <Form.Group controlId="updateBirthday">
                                         <Form.Label>Birthday</Form.Label>
                                         <Form.Control
                                             type="date"
@@ -158,5 +159,5 @@ RegistrationView.propTypes = {
         Password: PropTypes.string.isRequired,
         Email: PropTypes.string.isRequired
     }),
-    onRegistration: PropTypes.func.isRequired,
+    //onRegistration: PropTypes.func.isRequired,
 };
