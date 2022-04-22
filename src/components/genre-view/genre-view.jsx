@@ -3,7 +3,7 @@ import React from 'react';
 //import './genre-view.scss';
 
 import { Container, Col, Row, Card, Button, Cardgroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 export class GenreView extends React.Component {
 
