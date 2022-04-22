@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Container } from 'react-bootstrap';
 
 import './movie-card.scss';
 
@@ -11,26 +11,28 @@ export class MovieCard extends React.Component {
         const { movie } = this.props;
 
         return (
-            <Card id="movie-card">
-                <Card.Img variant="top" src={movie.ImagePath} />
-                <Card.Body>
-                    <Card.Title>{movie.Title}</Card.Title>
-                    <Card.Text>{movie.Description}</Card.Text>
+            <Container fluid="md">
+                <Card id="movie-card">
+                    <Card.Img crossOrigin="anonymous" variant="top" src={movie.ImagePath} />
+                    <Card.Body>
+                        <Card.Title>{movie.Title}</Card.Title>
+                        <Card.Text>{movie.Description}</Card.Text>
 
-                    <Link to={`/movies/${movie._id}`}>
-                        <Button variant="link">Open</Button>
-                    </Link>
+                        <Link to={`/movies/${movie._id}`}>
+                            <Button id="card-button" variant="link">Show more</Button>
+                        </Link>
 
-                    <Link to={`/directors/${movie.Director.Name}`}>
-                        <Button id="card-button" variant="link">Director</Button>
-                    </Link>
+                        <Link to={`/directors/${movie.Director.Name}`}>
+                            <Button id="card-button" variant="link">Director</Button>
+                        </Link>
 
-                    <Link to={`/genre/${movie.Genre.Name}`}>
-                        <Button id="card-button" variant="link">Genre</Button>
-                    </Link>
+                        <Link to={`/genre/${movie.Genre.Name}`}>
+                            <Button id="card-button" variant="link">Genre</Button>
+                        </Link>
 
-                </Card.Body>
-            </Card>
+                    </Card.Body>
+                </Card>
+            </Container>
         )
     }
 }
@@ -45,5 +47,5 @@ MovieCard.propTypes = {
             Description: PropTypes.string.isRequired
         })
     }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
+    //onMovieClick: PropTypes.func.isRequired
 };
