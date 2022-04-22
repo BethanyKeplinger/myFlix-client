@@ -1,0 +1,26 @@
+
+* {
+  box-sizing: border-box;
+}
+
+#card-button {
+  margin: auto;
+}
+#form-button {
+  background-color: #eda407;
+}
+#login-card {
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#form-button {
+  background-color: #eda407;
+  margin-top: 10px;
+}
+.main-view {
+  background-color: #265b5f;
+}
+/*# sourceMappingURL=index.8728e22b.css.map */
