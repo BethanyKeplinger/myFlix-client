@@ -74,15 +74,6 @@ export function RegistrationView(props) {
 
         <Container fluid className="registerContainer">
 
-            {/* <Navbar bg="dark" variant="dark" expand="lg">
-                <Container fluid>
-                    <Navbar.Brand href="#home">MyFlix</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="logout">Register</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar> */}
-
             <Row>
                 <Col>
                     <CardGroup>
@@ -101,7 +92,7 @@ export function RegistrationView(props) {
                                             required
                                             placeholder="Enter a username"
                                         />
-                                        {values.usernameErr && <p>{values.usernameErr}</p>}
+                                        {usernameErr && <p>{usernameErr}</p>}
 
                                     </Form.Group>
 
@@ -115,7 +106,7 @@ export function RegistrationView(props) {
                                             placeholder="Enter a password with 6 or more characters"
                                             minLength="6"
                                         />
-                                        {values.passwordErr && <p>{values.passwordErr}</p>}
+                                        {passwordErr && <p>{passwordErr}</p>}
                                     </Form.Group>
 
                                     <Form.Group controlId="formEmail" className="reg-form-inputs">
@@ -127,7 +118,7 @@ export function RegistrationView(props) {
                                             required
                                             placeholder="Enter a valid email address"
                                         />
-                                        {values.emailErr && <p>{values.emailErr}</p>}
+                                        {emailErr && <p>{emailErr}</p>}
                                     </Form.Group>
 
                                     <Form.Group controlId="updateBirthday">
