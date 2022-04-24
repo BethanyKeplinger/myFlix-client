@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import UserInfo from './user-info';
+import FavoriteMovies from './favorite-movies';
+import UpdateUser from './update-user';
+
 import './profile-view.scss';
 import { Container, Card, Button, Row, Col, Form, FormGroup, FormControl } from 'react-bootstrap'
 import axios from 'axios';
@@ -11,7 +15,7 @@ export class ProfileView extends React.Component {
         super();
 
         this.state = {
-            Username: null,
+            //Username: null,
             Password: null,
             Email: null,
             Birthday: null,
@@ -21,7 +25,12 @@ export class ProfileView extends React.Component {
 
     componentDidMount() {
         const accessToken = localStorage.getItem('token');
-        this.getUser(accessToken);
+        if (accessToken != null) {
+            this.setState({
+                user: localStorage.getItem("user")
+            });
+            this.getUser(accessToken);
+        }
     }
 
     onLoggedOut() {
@@ -66,7 +75,7 @@ export class ProfileView extends React.Component {
                 Birthday: this.state.Birthday
             },
             {
-                headers: { Authorization: `Bearer ${token}` }
+                headers: { Authorization: `Bearer ${token}` },
             }
         )
             .then((response) => {
@@ -79,7 +88,7 @@ export class ProfileView extends React.Component {
 
                 localStorage.setItem('user', this.state.Username);
                 alert("Profile updated!");
-                window.open('/profile', '_self');
+                window.open('/users/${Username}', '_self');
             });
     };
 
@@ -146,7 +155,7 @@ export class ProfileView extends React.Component {
     }
 
     render() {
-        const { movies, onBackClick } = this.props;
+        //const { movies, onBackClick } = this.props;
         const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
@@ -156,128 +165,46 @@ export class ProfileView extends React.Component {
         return (
             <Container>
                 <Row>
-                    <Col>
+                    <Col xs={12} sm={4}>
                         <Card>
                             <Card.Body>
-                                <Card.Title>Profile</Card.Title>
-                                <Form className="updateform" onSubmit={(e) =>
-                                    this.editUser(
-                                        e,
-                                        this.Username,
-                                        this.Password,
-                                        this.Email,
-                                        this.Birthday
-                                    )} >
-                                    <FormGroup>
-                                        <Form.Label>Username</Form.Label>
-                                        <FormControl
-                                            type="text"
-                                            name="Username"
-                                            placeholder="New Username"
-                                            value={Username}
-                                            onChange={(e) => this.setUsername(e.target.value)}
-                                            required
-                                        />
-                                    </FormGroup>
-
-                                    <FormGroup>
-                                        <Form.Label>Password</Form.Label>
-                                        <FormControl
-                                            type="password"
-                                            name="Password"
-                                            placeholder="New password"
-                                            value=""
-                                            onChange={(e) => this.setPassword(e.target.value)}
-                                            required
-                                        />
-                                    </FormGroup>
-
-                                    <FormGroup>
-                                        <Form.Label>Email</Form.Label>
-                                        <FormControl
-                                            type="email"
-                                            name="Email"
-                                            placeholder="New Email"
-                                            value={Email}
-                                            onChange={(e) => this.setEmail(e.target.value)}
-                                            required
-                                        />
-                                    </FormGroup>
-
-                                    <FormGroup>
-                                        <Form.Label>Birthday</Form.Label>
-                                        <FormControl
-                                            type="date"
-                                            name="Birthday"
-                                            placeholder="New Birthday"
-                                            value={Birthday}
-                                            onChange={(e) => this.setBirthday(e.target.value)}
-                                            required
-                                        />
-                                    </FormGroup>
-
-                                    <div>
-                                        <Button variant="success" type="submit" onClick={this.editUser}>Update Info</Button>
-                                        <Button variant="secondary" onClick={() => this.onDeleteUser()}>Delete Profile</Button>
-                                    </div>
-                                </Form>
+                                <UserInfo name={user.Username} emai={user.Email} />
                             </Card.Body>
                         </Card>
+
+                    </Col>
+
+                    <Col xs={12} sm={8}>
+                        <Card>
+                            <Card.Body>
+                                <UpdateUser />
+                            </Card.Body>
+                        </Card>
+
                     </Col>
                 </Row>
 
-                <Row>
-                    <Col>
-                        <Card>
-                            <Card.Body>
-                                {FavoriteMovies.length === 0 && (
-                                    <div className="text-center"> No Favorite Movies</div>
-                                )}
-                                <Row className="favorite-movies-container">
-                                    {FavoriteMovies.length > 0 && movies.map((movie) => {
-                                        if (movie._id === FavoriteMovies.find((fav) => fav === movie._id)
-                                        ) {
-                                            return (
-                                                <Card className="favorite-movie" key={movie._id} >
-                                                    <Card.Img
-                                                        className="favorite-movie-image"
-                                                        variant="top"
-                                                        src={movie.ImagePath}
-                                                    />
-                                                    <Card.Body>
-                                                        <Card.Title className="movie-title">
-                                                            {movie.Title}
-                                                        </Card.Title>
-                                                        <Button value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove from List</Button>
-                                                    </Card.Body>
-                                                </Card>
-                                            );
-                                        }
-                                    })}
-                                </Row>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+                <FavoriteMovies />
+
             </Container>
         )
     }
 }
 
 ProfileView.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.shape({
-        Title: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-        ImagePath: PropTypes.string.isRequired,
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired,
-        }).isRequired,
-        Director: PropTypes.shape({
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.string.isRequired,
-            Name: PropTypes.string.isRequired,
-        }).isRequired,
-    })).isRequired,
-    onBackClick: PropTypes.func.isRequired
+    // movies: PropTypes.arrayOf(PropTypes.shape({
+    //     Title: PropTypes.string.isRequired,
+    // //     Description: PropTypes.string.isRequired,
+    // //     ImagePath: PropTypes.string.isRequired,
+    // //     Genre: PropTypes.shape({
+    // //         Name: PropTypes.string.isRequired,
+    // //         Description: PropTypes.string.isRequired,
+    // //     }).isRequired,
+    // //     Director: PropTypes.shape({
+    // //         Bio: PropTypes.string.isRequired,
+    // //         Birth: PropTypes.string.isRequired,
+    // //         Name: PropTypes.string.isRequired,
+    // //     }).isRequired,
+    // // })).isRequired,
+    // onBackClick: PropTypes.func.isRequired
 }
