@@ -117,7 +117,7 @@ export class MainView extends React.Component {
                             if (movies.length === 0) return <div className="main-view" />;
 
                             return <Col md={8}>
-                                <MovieView movie={movies.find(m => m._id === match.params.id)} onBackClick={() => history.goBack()} />
+                                <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
                             </Col>
                         }} />
 
@@ -141,19 +141,35 @@ export class MainView extends React.Component {
                             </Col>
                         }} />
 
-                        <Route path={`/users/${user}`} render={({ match, history }) => {
+                        <Route path="/profile" render={({ history }) => {
+                            if (!user) {
+                                return (
+                                    <Col>
+                                        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                                    </Col>
+                                );
+                            }
+                            if (user) return <Redirect to={`/user/${user}`} />
+                            return (
+                                <Col md={8}>
+                                    <ProfileView movies={movies} onBackClick={() => history.goBack()} />
+                                </Col>
+                            );
+                        }} />
+
+                        {/* <Route path={`/users/${user}`} render={({ history }) => {
                             if (!user) return <Redirect to="/" />
                             return <Col>
                                 <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
                             </Col>
-                        }} />
+                        }} /> */}
 
                         {/* <Route path={`/user-update/${user}`} render={({ match, history }) => {
-                                if (!user) return <Redirect to="/" />
-                                return <Col>
-                                    <UserUpdate user={user} onBackClick={() => history.goBack()} />
-                                </Col>
-                            }} /> */}
+                            if (!user) return <Redirect to="/" />
+                            return <Col>
+                                <UserUpdate user={user} onBackClick={() => history.goBack()} />
+                            </Col>
+                        }} /> */}
                         {/* </Routes> */}
                     </Row>
                 </Container>
