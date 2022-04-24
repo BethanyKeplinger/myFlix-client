@@ -97,12 +97,12 @@ export function LoginView(props) {
                                 </Form>
 
 
-                                {/* <Card.Text> Not Registered yet?</Card.Text>
+                                <Card.Text> Not Registered yet?</Card.Text>
                                 <div id="register-container">
                                     <Link to="/register">
                                         <Button id="form-button">Register Now </Button>
                                     </Link>
-                                </div> */}
+                                </div>
 
                             </Card.Body>
                         </Card>
@@ -118,5 +118,5 @@ LoginView.propTypes = {
         Username: PropTypes.string.isRequired,
         Password: PropTypes.string.isRequired,
     }),
-    onLoggedIn: PropTypes.func.isRequired
+    //onLoggedIn: PropTypes.func.isRequired
 };
