@@ -1,10 +1,4 @@
 
-* {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 #card-button {
   margin: auto;
 }
@@ -22,10 +16,17 @@
 #form-button {
   background-color: #eda407;
 }
+
+.registerContainer {
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
 #login-card {
   box-sizing: border-box;
   padding: 15px;
-  margin-top: 30px;
+  margin-top: 80px;
   margin-bottom: 30px;
 }
 
