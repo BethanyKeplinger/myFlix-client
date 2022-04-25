@@ -1,5 +1,15 @@
 #movie-view {
     box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+#movie-view-button {
+    background-color: #eda407;
+    margin: 10px;
+    border: none;
+}
+
+#movie-view-image {
+    height: auto;
+    width: auto;
 }
