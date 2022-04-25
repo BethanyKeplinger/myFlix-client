@@ -29,6 +29,7 @@ export class MovieView extends React.Component {
                                     <Button variant="link" id="movie-genre" className="movie-gerne">
                                         Genre: {movie.Genre.Name}</Button>
                                 </Link>
+
                             </Card.Body>
                         </Card>
 
