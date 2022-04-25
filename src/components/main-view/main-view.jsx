@@ -89,7 +89,7 @@ export class MainView extends React.Component {
 
                     <Row className='main-view'>
                         {/* <Routes> */}
-                        <Route path="/" render={() => {
+                        <Route exact path="/" render={() => {
                             if (!user) return <Col>
                                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>
@@ -110,7 +110,7 @@ export class MainView extends React.Component {
                             </Col>
                         }} />
 
-                        <Route path="/movies/:movieId" render={({ match, history }) => {
+                        <Route exact path="/movies/:movieId" render={({ match, history }) => {
                             if (!user) return <Col>
                                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>
@@ -121,7 +121,7 @@ export class MainView extends React.Component {
                             </Col>
                         }} />
 
-                        <Route path="/director/:name" render={({ match, history }) => {
+                        <Route exact path="/director/:name" render={({ match, history }) => {
                             if (!user) return <Col>
                                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>
@@ -131,7 +131,7 @@ export class MainView extends React.Component {
                             </Col>
                         }} />
 
-                        <Route path="/genre/:name" render={({ match, history }) => {
+                        <Route exact path="/genre/:name" render={({ match, history }) => {
                             if (!user) return <Col>
                                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>
@@ -149,7 +149,7 @@ export class MainView extends React.Component {
                                     </Col>
                                 );
                             }
-                            if (user) return <Redirect to={`/user/${user}`} />
+                            // if (user) return <Redirect to={`/user/${user}`} />
                             return (
                                 <Col md={8}>
                                     <ProfileView movies={movies} onBackClick={() => history.goBack()} />
