@@ -29,7 +29,7 @@ export function NavbarView({ user }) {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto">
                         {isAuth() && (
-                            <Nav.Link id="nav-link" href="/movies">Home</Nav.Link>
+                            <Nav.Link id="nav-link" href="/">Home</Nav.Link>
                         )}
                         {isAuth() && (
                             <Nav.Link id="nav-link" href={`/users/${user}`}>{user}</Nav.Link>
