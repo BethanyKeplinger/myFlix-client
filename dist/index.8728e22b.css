@@ -1,4 +1,19 @@
 
+#movie-view {
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+#movie-view-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+}
+
+#movie-view-image {
+  height: auto;
+  width: auto;
+}
 #card-button {
   margin: auto;
 }
@@ -12,6 +27,11 @@
   background-color: #eda407;
   color: whitesmoke;
   margin: 5px;
+}
+
+#movie-image {
+  height: 50px;
+  width: 50px;
 }
 #form-button {
   background-color: #eda407;
