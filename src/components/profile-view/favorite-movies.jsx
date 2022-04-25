@@ -1,9 +1,32 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Col, Row, Card, Button, Container } from 'react-bootstrap';
 
-function FavoriteMovies() {
+export function FavoriteMovies({ favoriteMoviesList, removeFav }) {
     return (
-        <Row>
-            <Col>
+        <Container>
+
+            <Row>
+                <Col xs={12}>
+                    <h4>Favorite Movies</h4>
+                </Col>
+            </Row>
+            <Row>
+                {favoriteMoviesList.map(movie => {
+                    return (
+                        <Col xs={12} md={6} key={_id}>
+                            <Card className="favorite-movie">
+                                <Card.Img variant="top" crossOrigin="anonymous" src={movie.ImagePath} />
+                                <Card.Body>
+                                    <Card.Title>{movie.Title}</Card.Title>
+                                    <Button onClick={() => removeFav(movie._id)}>Remove from Favorites</Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    )
+                })
+                }
+                {/* <Col>
                 <Card>
                     <Card.Body>
                         {FavoriteMovies.length === 0 && (
@@ -33,9 +56,8 @@ function FavoriteMovies() {
                         </Row>
                     </Card.Body>
                 </Card>
-            </Col>
-        </Row>
+            </Col> */}
+            </Row>
+        </Container>
     )
 }
-
-export default FavoriteMovies
