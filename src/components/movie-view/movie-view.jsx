@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
@@ -16,8 +18,8 @@ export class MovieView extends React.Component {
                                 <Card.Img crossOrigin="anonymous" id="movie-view-image" variant="top" src={movie.ImagePath} />
                                 <Card.Title id="movie-title" className="movie-title">{movie.Title}</Card.Title>
                                 <Card.Text id="movie-description" className="movie-description">{movie.Description}</Card.Text>
-                                <Card.Text id="movie-director" className="movie-director">Director: {movie.Director.Name}</Card.Text>
-                                <Card.Text id="movie-genre" className="movie.genre">Genre: {movie.Genre.Name}</Card.Text>
+                                {/* <Card.Text id="movie-director" className="movie-director">Director: {movie.Director.Name}</Card.Text>
+                                <Card.Text id="movie-genre" className="movie.genre">Genre: {movie.Genre.Name}</Card.Text> */}
 
                                 <Link to={`/director/${movie.Director.Name}`}>
                                     <Button variant="link" id="movie-director" className="movie-director">
@@ -31,7 +33,7 @@ export class MovieView extends React.Component {
                         </Card>
 
                         <Button id="movie-view-button" onClick={() => { onBackClick(null); }}>Back</Button>
-                        <Button id="movie-viewbutton" onClick={() => { }}>Add to favorites</Button>
+                        <Button id="movie-view-button" onClick={() => { }}>Add to favorites</Button>
 
                     </Col>
                 </Row>
