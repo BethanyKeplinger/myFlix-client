@@ -13,7 +13,7 @@ export class MovieCard extends React.Component {
         return (
             <Container id="movie-card-container" fluid="md">
                 <Card id="movie-card">
-                    <Card.Img
+                    <Card.Img id="movie-image"
                         crossOrigin="anonymous"
                         variant="top"
                         src={movie.ImagePath} />
