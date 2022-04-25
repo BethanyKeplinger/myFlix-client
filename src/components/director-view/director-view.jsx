@@ -1,6 +1,6 @@
 import React from 'react';
 
-//import './director-view.scss';
+import './director-view.scss';
 
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 
