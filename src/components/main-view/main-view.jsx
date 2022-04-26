@@ -165,7 +165,7 @@ export class MainView extends React.Component {
                             );
                         }} />
 
-                        <Route path="/profile" render={({ history }) => {
+                        <Route path="/users/:Username" render={({ history }) => {
                             if (!user) {
                                 return (
                                     <Col>
