@@ -22993,7 +22993,7 @@ class MainView extends _reactDefault.default.Component {
                                 __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                                path: "/profile",
+                                path: "/users/:Username",
                                 render: ({ history  })=>{
                                     if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
@@ -39656,7 +39656,7 @@ function ProfileView(props) {
     const [favoriteMoviesList, setFavoriteMoviesList] = _react.useState([]);
     let token = localStorage.getItem('token');
     _axiosDefault.default.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    const getUserData = (cancelToken)=>{
+    const getUserData = (cancelToken, username)=>{
         _axiosDefault.default.get('https://my-flix-2022.herokuapp.com/users/${username}', {
             cancelToken: cancelToken
         }).then((response)=>{
