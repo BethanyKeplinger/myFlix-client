@@ -17,7 +17,7 @@ export function ProfileView(props) {
     let token = localStorage.getItem('token');
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-    const getUserData = (cancelToken) => {
+    const getUserData = (cancelToken, username) => {
         axios.get('https://my-flix-2022.herokuapp.com/users/${username}', {
             cancelToken: cancelToken
         })
