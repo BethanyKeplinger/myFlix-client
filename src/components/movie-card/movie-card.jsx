@@ -20,19 +20,19 @@ export class MovieCard extends React.Component {
 
                     <Card.Body>
                         <Card.Title>{movie.Title}</Card.Title>
-                        <Card.Text>{movie.Description}</Card.Text>
+                        {/* <Card.Text>{movie.Description}</Card.Text> */}
 
                         <Link to={`/movies/${movie._id}`}>
                             <Button id="card-button" variant="link">Show more</Button>
                         </Link>
 
-                        <Link to={`/director/${movie.Director.Name}`}>
+                        {/* <Link to={`/director/${movie.Director.Name}`}>
                             <Button id="card-button" variant="link">Director</Button>
                         </Link>
 
                         <Link to={`/genre/${movie.Genre.Name}`}>
                             <Button id="card-button" variant="link">Genre</Button>
-                        </Link>
+                        </Link> */}
 
                     </Card.Body>
                 </Card>
