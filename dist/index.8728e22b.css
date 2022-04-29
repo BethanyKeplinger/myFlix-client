@@ -1,4 +1,13 @@
+#profile-container {
+  margin-top: 80px;
+}
 
+#profile-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 100px;
+}
 #genre-view {
   margin-top: 90px;
   margin-bottom: 70px;
@@ -42,7 +51,7 @@
 #movie-card {
   margin-top: 60px;
   margin-bottom: 10px;
-  min-height: 900px;
+  min-height: 500px;
 }
 
 #card-button {
