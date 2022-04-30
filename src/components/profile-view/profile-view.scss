@@ -2,11 +2,34 @@
     margin-top: 80px;
 }
 
-#update-profile-container {}
+#update-profile-container {
+    margin: 10px;
+}
 
-#profile-button {
+#update-button {
     background-color: #eda407;
     margin: 10px;
     border: none;
     margin-bottom: 100px;
 }
+
+#delete-button {
+    background-color: #eda407;
+    margin: 10px;
+    border: none;
+    margin-bottom: 100px;
+}
+
+#remove-button {
+    background-color: #eda407;
+    margin: 10px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+#profile-movies-card {
+    margin: 10px;
+}
+
+// .favorite-movies-container {}
