@@ -2,11 +2,34 @@
   margin-top: 80px;
 }
 
-#profile-button {
+#update-profile-container {
+  margin: 10px;
+}
+
+#update-button {
   background-color: #eda407;
   margin: 10px;
   border: none;
   margin-bottom: 100px;
+}
+
+#delete-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 100px;
+}
+
+#remove-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+#profile-movies-card {
+  margin: 10px;
 }
 #genre-view {
   margin-top: 90px;
@@ -33,6 +56,13 @@
 }
 
 #movie-view-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 100px;
+}
+
+#add-favorite-button {
   background-color: #eda407;
   margin: 10px;
   border: none;
@@ -76,9 +106,15 @@
   margin-bottom: 30px;
 }
 
-#form-button {
+#login-button {
   background-color: #eda407;
   margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#register-button {
+  background-color: #eda407;
+  font-size: 12px;
 }
 .main-view {
   background-color: #265b5f;
