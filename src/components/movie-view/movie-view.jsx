@@ -3,8 +3,29 @@ import PropTypes from 'prop-types';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './movie-view.scss';
+import axios from 'axios';
 
 export class MovieView extends React.Component {
+
+    addFavorite(movie) {
+        let token = localStorage.getItem('token');
+        let url = 'https://my-flix-2022.herokuapp.com/users/' + localStorage.getItem('user') + "/movies/" + movie._id;
+
+        console.log(token);
+
+        axios.post(url, '',
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            })
+            .then((response) => {
+                console.log(response);
+                window.open('/', '_self');
+                alert('Added to favorites!')
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     render() {
         const { movie, onBackClick } = this.props;
@@ -34,7 +55,7 @@ export class MovieView extends React.Component {
                         </Card>
 
                         <Button id="movie-view-button" onClick={() => { onBackClick(null); }}>Back</Button>
-                        <Button id="movie-view-button" onClick={() => { }}>Add to favorites</Button>
+                        <Button id="add-favorite-button" onClick={() => { this.addFavorite(movie) }}>Add to favorites</Button>
 
                     </Col>
                 </Row>
