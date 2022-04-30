@@ -82,7 +82,7 @@ export function LoginView(props) {
                                         {passwordErr && <p>{passwordErr}</p>}
                                     </Form.Group>
 
-                                    <Button id="form-button" variant="primary" type="submit" onClick={handleSubmit}>Login
+                                    <Button id="login-button" variant="primary" type="submit" onClick={handleSubmit}>Login
                                     </Button>
 
                                 </Form>
@@ -91,7 +91,7 @@ export function LoginView(props) {
                                 <Card.Text> Not Registered yet?</Card.Text>
                                 <div id="register-container">
                                     <Link to="/register">
-                                        <Button id="form-button">Register Now </Button>
+                                        <Button id="register-button">Register Now </Button>
                                     </Link>
                                 </div>
 
