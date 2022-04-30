@@ -53,7 +53,7 @@ export class ProfileView extends React.Component {
                     Password: response.data.Password,
                     Email: response.data.Email,
                     Birthday: response.data.Birthday,
-                    FavoriteMoves: response.data.FavoriteMoves
+                    FavoriteMovies: response.data.FavoriteMovies
                 });
             })
             .catch(function (error) {
@@ -87,7 +87,7 @@ export class ProfileView extends React.Component {
 
                 localStorage.setItem('user', this.state.Username);
                 alert('Profile has been updated!');
-                window.open('/profile', '_self');
+                window.open('/', '_self');
             });
     };
 
@@ -156,7 +156,7 @@ export class ProfileView extends React.Component {
 
     render() {
         const { movies } = this.props;
-        const { Username, Email, Birthday, FavoriteMovies } = this.state;
+        const { Username, Email, Birthday, Password, FavoriteMovies } = this.state;
 
         if (!Username) {
             return null;
@@ -196,7 +196,7 @@ export class ProfileView extends React.Component {
                                             type='password'
                                             name='Password'
                                             placeholder='New password'
-                                            value=''
+                                            defaultValue=""
                                             onChange={(e) => this.setPassword(e.target.value)}
                                             required
                                         />
@@ -227,8 +227,8 @@ export class ProfileView extends React.Component {
                                     </FormGroup>
 
                                     <div>
-                                        <Button id='profile-button' type='submit' onClick={this.editUser}>Update Info</Button>
-                                        <Button id='profile-button' onClick={() => this.onDeleteProfile()}> Delete Profile</Button>
+                                        <Button id='update-button' type='submit' onClick={this.editUser}>Update Info</Button>
+                                        <Button id='delete-button' onClick={() => this.onDeleteProfile()}> Delete Profile</Button>
                                     </div>
                                 </Form>
                             </Card.Body>
@@ -237,7 +237,7 @@ export class ProfileView extends React.Component {
 
                     <Row>
                         <Col>
-                            <Card>
+                            <Card id="profile-movies-card">
                                 <Card.Body>
                                     {FavoriteMovies.length === 0 && (
                                         <div className='text-center'> No Favorite Movies</div>
@@ -248,12 +248,12 @@ export class ProfileView extends React.Component {
                                             if (movie._id === FavoriteMovies.find((fav) => fav === movie._id)
                                             ) {
                                                 return (
-                                                    <Col xs={12} md={6} key={_id}>
+                                                    <Col key={movie._id}>
                                                         <Card className='favorite-movie' key={movie._id}>
                                                             <Card.Img variant='top' crossOrigin='anonymous' src={movie.ImagePath} />
                                                             <Card.Body>
                                                                 <Card.Title>{movie.Title}</Card.Title>
-                                                                <Button value={movie._id} onClick={(e) => this.onRemoveFav(e, movie)}>Remove from Favorites</Button>
+                                                                <Button id='remove-button' value={movie._id} onClick={(e) => this.onRemoveFav(e, movie)}>Remove from Favorites</Button>
                                                             </Card.Body>
                                                         </Card>
                                                     </Col>
