@@ -39687,7 +39687,7 @@ class ProfileView extends _reactDefault.default.Component {
             });
             localStorage.setItem('user', this.state.Username);
             alert('Profile has been updated!');
-            window.open('/users/${Username}', '_self');
+            window.open('/', '_self');
         });
     };
     onRemoveFav = (e, movie)=>{
