@@ -196,7 +196,7 @@ export class ProfileView extends React.Component {
                                             type='password'
                                             name='Password'
                                             placeholder='New password'
-                                            defaultValue=""
+                                            //defaultValue=""
                                             onChange={(e) => this.setPassword(e.target.value)}
                                             required
                                         />
@@ -239,6 +239,7 @@ export class ProfileView extends React.Component {
                         <Col>
                             <Card id="profile-movies-card">
                                 <Card.Body>
+                                    <Card.Title>Favorite Movies List</Card.Title>
                                     {FavoriteMovies.length === 0 && (
                                         <div className='text-center'> No Favorite Movies</div>
                                     )}
