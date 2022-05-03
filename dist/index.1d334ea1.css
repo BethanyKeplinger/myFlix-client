@@ -1,8 +1,122 @@
+#login-card {
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
 
+#login-button {
+  background-color: #eda407;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
+#register-button {
+  background-color: #eda407;
+  font-size: 12px;
+}
+#form-button {
+  background-color: #eda407;
+}
 
+.registerContainer {
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+#card-button {
+  margin: auto;
+}
 
-.my-flix {
-  color: steelblue;
+#movie-card {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  min-height: 500px;
+}
+
+#card-button {
+  background-color: #eda407;
+  color: whitesmoke;
+  margin: 5px;
+}
+#movie-view {
+  box-sizing: border-box;
+  margin-top: 70px;
+  margin-bottom: 10px;
+}
+
+#movie-view-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 100px;
+}
+
+#add-favorite-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 100px;
+}
+
+#movie-view-image {
+  height: auto;
+  width: auto;
+  margin-bottom: 20px;
+}
+#director-view {
+  margin-top: 90px;
+  margin-bottom: 70px;
+}
+
+#director-back-button {
+  background-color: #eda407;
+  color: whitesmoke;
+}
+#genre-view {
+  margin-top: 90px;
+  margin-bottom: 70px;
+}
+
+#genre-view-button {
+  background-color: #eda407;
+  color: whitesmoke;
+}
+#profile-container {
+  margin-top: 80px;
+}
+
+#update-profile-container {
+  margin: 10px;
+}
+
+#update-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 100px;
+}
+
+#delete-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 100px;
+}
+
+#remove-button {
+  background-color: #eda407;
+  margin: 10px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+#profile-movies-card {
+  margin: 10px;
+}
+.main-view {
+  background-color: #265b5f;
 }
 /*# sourceMappingURL=index.1d334ea1.css.map */
