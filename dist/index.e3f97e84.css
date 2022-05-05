@@ -1,0 +1,113 @@
+#card-button {
+  margin: auto;
+}
+
+#movie-card {
+  min-height: 500px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+
+#card-button {
+  color: #f5f5f5;
+  background-color: #eda407;
+  margin: 5px;
+}
+
+#login-card {
+  box-sizing: border-box;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+#login-button {
+  background-color: #eda407;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#register-button {
+  background-color: #eda407;
+  font-size: 12px;
+}
+
+#form-button {
+  background-color: #eda407;
+}
+
+.registerContainer {
+  box-sizing: border-box;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+#movie-view {
+  box-sizing: border-box;
+  margin-top: 70px;
+  margin-bottom: 10px;
+}
+
+#movie-view-button, #add-favorite-button {
+  background-color: #eda407;
+  border: none;
+  margin: 10px 10px 100px;
+}
+
+#movie-view-image {
+  height: auto;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+#director-view {
+  margin-top: 90px;
+  margin-bottom: 70px;
+}
+
+#director-back-button {
+  color: #f5f5f5;
+  background-color: #eda407;
+}
+
+#genre-view {
+  margin-top: 90px;
+  margin-bottom: 70px;
+}
+
+#genre-view-button {
+  color: #f5f5f5;
+  background-color: #eda407;
+}
+
+#profile-container {
+  margin-top: 80px;
+}
+
+#update-profile-container {
+  margin: 10px;
+}
+
+#update-button, #delete-button {
+  background-color: #eda407;
+  border: none;
+  margin: 10px 10px 100px;
+}
+
+#remove-button {
+  background-color: #eda407;
+  border: none;
+  margin: 10px 10px 20px;
+  font-size: 12px;
+}
+
+#profile-movies-card {
+  margin: 10px;
+}
+
+.main-view {
+  background-color: #265b5f;
+}
+
+/*# sourceMappingURL=index.e3f97e84.css.map */
