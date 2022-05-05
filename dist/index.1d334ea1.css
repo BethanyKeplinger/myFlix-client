@@ -25,21 +25,6 @@
   margin-top: 80px;
   margin-bottom: 30px;
 }
-#card-button {
-  margin: auto;
-}
-
-#movie-card {
-  margin-top: 60px;
-  margin-bottom: 10px;
-  min-height: 500px;
-}
-
-#card-button {
-  background-color: #eda407;
-  color: whitesmoke;
-  margin: 5px;
-}
 #movie-view {
   box-sizing: border-box;
   margin-top: 70px;
@@ -115,6 +100,21 @@
 
 #profile-movies-card {
   margin: 10px;
+}
+#card-button {
+  margin: auto;
+}
+
+#movie-card {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  min-height: 500px;
+}
+
+#card-button {
+  background-color: #eda407;
+  color: whitesmoke;
+  margin: 5px;
 }
 .main-view {
   background-color: #265b5f;
