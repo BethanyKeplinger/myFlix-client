@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Container from 'react-bootstrap/Container';
 
+//import { configureStore } from '@reduxjs/toolkit'
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import moviesApp from './reducers/reducers';
@@ -13,7 +14,7 @@ import MainView from './components/main-view/main-view';
 import './index.scss';
 
 
-const store = createStore(moviesApp, devToolsEnhancer);
+const store = createStore(moviesApp, devToolsEnhancer());
 
 //Main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
