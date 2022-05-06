@@ -6,7 +6,8 @@ import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 export function NavbarView({ user }) {
 
     const onLoggedOut = () => {
-        localStorage.clear();
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
         window.open('/', '_self');
     };
 
