@@ -82,7 +82,9 @@
 }
 
 #profile-container {
+  justify-content: center;
   margin-top: 80px;
+  display: flex;
 }
 
 #update-profile-container {
@@ -104,6 +106,10 @@
 
 #profile-movies-card {
   margin: 10px;
+}
+
+.favorite-movie {
+  min-height: 480px;
 }
 
 .main-view {
