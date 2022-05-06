@@ -1,5 +1,7 @@
 #profile-container {
     margin-top: 80px;
+    display: flex;
+    justify-content: center;
 }
 
 #update-profile-container {
@@ -32,4 +34,6 @@
     margin: 10px;
 }
 
-// .favorite-movies-container {}
+.favorite-movie {
+    min-height: 480px;
+}
