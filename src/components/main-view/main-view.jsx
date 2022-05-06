@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { startTransition } from 'react';
 import axios from 'axios';
+
 import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-import { setMovies } from '../../actions/actions';
+import {
+    setMovies,
+    setGenre,
+    setDirector,
+    setUser,
+    setFavorites,
+} from '../../actions/actions';
+
 import MoviesList from '../movies-list/movies-list';
 
 //import './main-view.scss';
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
-//import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { DirectorView } from '../director-view/director-view';
@@ -92,7 +99,6 @@ class MainView extends React.Component {
                 <Container>
 
                     <Row className='main-view'>
-                        {/* <Routes> */}
                         <Route exact path="/" render={() => {
                             if (!user) return <Col>
                                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -198,7 +204,6 @@ class MainView extends React.Component {
                                 <UserUpdate user={user} onBackClick={() => history.goBack()} />
                             </Col>
                         }} /> */}
-                        {/* </Routes> */}
                     </Row>
                 </Container>
             </Router >
@@ -207,8 +212,18 @@ class MainView extends React.Component {
     }
 }
 
-let mapStateToProps = state => {
-    return { movies: state.movies }
-}
+let mapStateToProps = (state) => ({
+    movies: state.movies,
+    user: state.user,
+    favorites: state.favoritres,
+    genre: state.genre,
+    director: state.director
+});
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, {
+    setMovies,
+    setDirector,
+    setGenre,
+    setUser,
+    setFavorites,
+})(MainView);
