@@ -3,6 +3,9 @@ import React from 'react';
 import './profile-view.scss';
 import PropTypes from 'prop-types';
 
+import { setUser } from '../../actions/actions';
+import { connect } from 'react-redux';
+
 import { Container, Card, Button, Row, Col, Form, FormGroup, FormControl } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -29,14 +32,14 @@ export class ProfileView extends React.Component {
         this.getUser(accessToken);
     }
 
-    // onLoggedOut() {
-    //     localStorage.removeItem('token');
-    //     localStorage.removeItem('user');
-    //     this.setState({
-    //         user: null
-    //     });
-    //     window.open('/', '_self');
-    // }
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+        window.open('/', '_self');
+    }
 
     getUser(token) {
         let Username = localStorage.getItem('user');
@@ -156,7 +159,7 @@ export class ProfileView extends React.Component {
 
     render() {
         const { movies } = this.props;
-        const { Username, Email, Birthday, Password, FavoriteMovies } = this.state;
+        const { Username, Email, Birthday, FavoriteMovies } = this.state;
 
         if (!Username) {
             return null;
@@ -166,7 +169,7 @@ export class ProfileView extends React.Component {
             <Container id='profile-container'>
                 <Row>
                     <Col>
-                        <Card id="update-profile-container">
+                        <Card id="update-profile-container" className="justify-content-md-center">
                             <Card.Body>
                                 <Card.Title>Update Profile</Card.Title>
                                 <Form className='update-form' onSubmit={(e) =>
@@ -196,7 +199,7 @@ export class ProfileView extends React.Component {
                                             type='password'
                                             name='Password'
                                             placeholder='New password'
-                                            //defaultValue=""
+                                            defaultValue=""
                                             onChange={(e) => this.setPassword(e.target.value)}
                                             required
                                         />
@@ -236,8 +239,8 @@ export class ProfileView extends React.Component {
                     </Col>
 
                     <Row>
-                        <Col>
-                            <Card id="profile-movies-card">
+                        <Col sm={6} md={12}>
+                            <Card id="profile-movies-card" className="justify-content-md-center">
                                 <Card.Body>
                                     <Card.Title>Favorite Movies List</Card.Title>
                                     {FavoriteMovies.length === 0 && (
@@ -288,3 +291,9 @@ ProfileView.propTypes = {
         }).isRequired,
     })).isRequired,
 };
+
+let mapStateToProps = state => {
+    return { movies: state.movies, user: state.user }
+}
+
+export default connect(mapStateToProps, { setUser })(ProfileView);
