@@ -21,5 +21,6 @@ Users are able to:
   <li>Delete their account</li>
 </ul>
 
+<h2>Additional Information</h2>
 
 Use index.html as entry point for build process: parcel src/index.html.
