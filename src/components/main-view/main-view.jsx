@@ -39,6 +39,7 @@ class MainView extends React.Component {
     }
 
     componentDidMount() {
+
         let accessToken = localStorage.getItem('token');
         if (accessToken !== null) {
             this.setState({
@@ -49,15 +50,10 @@ class MainView extends React.Component {
     }
 
     /* when a user successfully logs in, this function updates the `user` property in state to that particular user */
-    onLoggedIn(authData) {
-        console.log(authData);
+    onLoggedIn(user) {
         this.setState({
-            user: authData.user.Username
+            user
         });
-
-        localStorage.setItem('token', authData.token);
-        localStorage.setItem('user', authData.user.Username);
-        this.getMovies(authData.token);
     }
 
     getMovies(token) {
@@ -74,17 +70,18 @@ class MainView extends React.Component {
             });
     }
 
-    // onLoggedOut() {
-    //     localStorage.removeItem('token');
-    //     localStorage.removeItem('user');
-    //     this.setState({
-    //         user: null
-    //     });
-    // }
+     onLoggedOut() {
+         localStorage.removeItem('token');
+         localStorage.removeItem('user');
+         this.setState({
+             user: null
+         });
+     }
 
     render() {
         let { movies } = this.props;
         let { user } = this.state;
+
 
         return (
 
