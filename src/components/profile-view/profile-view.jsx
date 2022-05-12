@@ -24,11 +24,11 @@ export class ProfileView extends React.Component {
 
     componentDidMount() {
         let accessToken = localStorage.getItem('token');
-        if (accessToken != null) {
-            this.setState({
-                user: localStorage.getItem('user')
-            });
-        }
+        // if (accessToken != null) {
+        //     this.setState({
+        //         user: localStorage.getItem('user')
+        //     });
+        // }
         this.getUser(accessToken);
     }
 
