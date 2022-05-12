@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import './movie-view.scss';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+
 export class MovieView extends React.Component {
 
     addFavorite(movie) {
@@ -80,3 +82,10 @@ MovieView.propTypes = {
         ImagePath: PropTypes.string.isRequired
     }).isRequired
 };
+
+const mapStateToProps = (state) => {
+    const { movies, favorite } = state;
+    return { movies, favorite }
+}
+
+export default connect(mapStateToProps)(MovieView)
