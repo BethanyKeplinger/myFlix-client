@@ -23,4 +23,6 @@ Users are able to:
 
 <h2>Additional Information</h2>
 
-Use index.html as entry point for build process: parcel src/index.html.
+Use index.html as entry point for build process: parcel src/index.html
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/877dfcb6-af4b-425e-b98c-4659a9568717/deploy-status)](https://app.netlify.com/sites/myflix2022/deploys)
