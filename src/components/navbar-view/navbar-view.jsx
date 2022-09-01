@@ -46,7 +46,7 @@ export function NavbarView({ user }) {
                             <Nav.Link id="nav-link" href="/register">Sign-up</Nav.Link>
                         )}
                     </Nav>
-                    {isAuth() && (
+                    {/* {isAuth() && (
                         <Form id="search-bar" className="d-flex ml-auto">
 
                             <FormControl
@@ -57,10 +57,10 @@ export function NavbarView({ user }) {
                             />
                             <Button id="search-button" variant="outline-light" size="sm">Search</Button>
                         </Form>
-                    )}
+                    )} */}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        
+
     );
 }
