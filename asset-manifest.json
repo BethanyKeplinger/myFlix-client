@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/BethanyKeplinger/myFlix-client/static/css/main.79d6fbd5.css",
+    "main.js": "/BethanyKeplinger/myFlix-client/static/js/main.f5249320.js",
+    "index.html": "/BethanyKeplinger/myFlix-client/index.html",
+    "main.79d6fbd5.css.map": "/BethanyKeplinger/myFlix-client/static/css/main.79d6fbd5.css.map",
+    "main.f5249320.js.map": "/BethanyKeplinger/myFlix-client/static/js/main.f5249320.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.79d6fbd5.css",
+    "static/js/main.f5249320.js"
+  ]
+}
